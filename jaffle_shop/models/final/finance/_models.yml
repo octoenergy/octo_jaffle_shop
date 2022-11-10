@@ -1,0 +1,25 @@
+version: 2
+
+exposures:
+  - name: Customer returns dashboard
+    description: A dashboard for showing total value of returned goods by customer.
+    type: dashboard
+    url: https://an-example-dashboard-site.com
+    owner:
+      email: jaffle.mcjaffleson@gmail.com
+    depends_on:
+      - ref('fnl_finance_customerreturns')
+
+models:
+  - name: fnl_finance_customerreturns
+    meta:
+      owner: 'jaffle.mcjaffleson@gmail.com'
+    description: This table has the total lifetime return value by customer id.
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+      - name: returned_value
+        description: Total value of orders returned.
