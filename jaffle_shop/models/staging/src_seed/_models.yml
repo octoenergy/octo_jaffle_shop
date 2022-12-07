@@ -2,9 +2,6 @@ version: 2
 
 models:
   - name: stg_customers
-    meta:
-      owner: "alex.malins@octoenergy.com"
-      team_owner: '!subteam^S02GPV1135F' #@dbt_gatekeepers
     description: |
       A version of `stg_customers_pii` with sensitive details hashed. For more details, see the PII
       table.

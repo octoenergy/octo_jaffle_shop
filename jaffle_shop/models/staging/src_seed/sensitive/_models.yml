@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    meta:
+      owner: "alex.malins@octoenergy.com"
+      team_owner: '!subteam^S02GPV1135F' #@dbt_gatekeepers
+    description: |
+      Table of customers of our Jaffle Shop!
+
+      Contains PII.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier.
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
