@@ -1,0 +1,28 @@
+version: 2
+
+exposures:
+  - name: new_customers_dashboard
+    label: Montlhly new customers dashboard
+    description: A dashboard for the number of new customers making first orders each month.
+    type: dashboard
+    url: https://prod-apnortheast-a.online.tableau.com/#/site/octopusenergyjapan/home/monthlynewcustomers
+    owner:
+      email: "alex.malins@octoenergy.com"
+    depends_on:
+      - ref('fnl_sales_newcustomers')
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: "alex.malins@octoenergy.com"
+      team_owner: '!subteam^S02GPV1135F' #@dbt_gatekeepers
+    description: |
+      Count of new customers (i.e. ones making their first order) each month. 
+    columns:
+      - name: year_month
+        description: Year and month.
+        tests:
+          - unique
+          - not_null
+      - name: new_customers
+        description: Number of new customers making first orders that month.
