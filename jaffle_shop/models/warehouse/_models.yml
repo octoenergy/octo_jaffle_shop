@@ -1,20 +1,20 @@
 version: 2
 
 models:
-  - name: customers
+  - name: wh_customers
     description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
 
     columns:
       - name: customer_id
-        description: This is a unique identifier for a customer
+        description: Primary key
         tests:
           - unique
           - not_null
 
-      - name: first_name
+      - name: first_name_hash
         description: Customer's first name. PII.
 
-      - name: last_name
+      - name: last_name_hash
         description: Customer's last name. PII.
 
       - name: first_order
@@ -29,7 +29,7 @@ models:
       - name: total_order_amount
         description: Total value (AUD) of a customer's orders
 
-  - name: orders
+  - name: wh_orders
     description: This table has basic information about orders, as well as some derived facts based on payments
 
     columns:
@@ -37,14 +37,14 @@ models:
         tests:
           - unique
           - not_null
-        description: This is a unique identifier for an order
+        description: Primary key
 
       - name: customer_id
         description: Foreign key to the customers table
         tests:
           - not_null
           - relationships:
-              to: ref('customers')
+              to: ref('wh_customers')
               field: customer_id
 
       - name: order_date

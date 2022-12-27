@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: stg_customers
+    description: Staging table for customers. PII hashed.
     columns:
       - name: customer_id
         tests:
@@ -9,8 +10,10 @@ models:
           - not_null
 
   - name: stg_orders
+    description: Orders placed at the shop.
     columns:
       - name: order_id
+        description: Primary key
         tests:
           - unique
           - not_null
@@ -20,8 +23,10 @@ models:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
   - name: stg_payments
+    description: Payments submitted for orders
     columns:
       - name: payment_id
+        description: Primary key
         tests:
           - unique
           - not_null
