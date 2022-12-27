@@ -1,0 +1,38 @@
+version: 2
+
+metrics:
+- name: new_customers
+  label: New Customers
+  model: ref('wh_customers')
+  description: "Number of customers who made their first order"
+
+  calculation_method: count_distinct
+  expression: customer_id
+
+  timestamp: first_order
+  time_grains: [day, week, month, quarter, year]
+
+  # general properties
+  config:
+    enabled: true 
+
+  meta: {team: Sales}
+
+- name: returns_value
+  label: Returns value
+  model: ref('wh_orders')
+  description: "Total value of orders returned by customer"
+
+  calculation_method: sum
+  expression: total_amount
+
+  timestamp: order_date
+  time_grains: [day, week, month, quarter, year]
+
+  dimensions: [customer_id]
+
+  # general properties
+  config:
+    enabled: true 
+
+  meta: {team: Sales}
