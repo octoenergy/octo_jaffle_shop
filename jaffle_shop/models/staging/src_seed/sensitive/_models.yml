@@ -2,8 +2,11 @@ version: 2
 
 models:
   - name: stg_customers_pii
+    description: > 
+      Table that includes all info about all customers, with PII hashed
     columns:
       - name: customer_id
+        description: Primary Key
         tests:
           - unique
           - not_null

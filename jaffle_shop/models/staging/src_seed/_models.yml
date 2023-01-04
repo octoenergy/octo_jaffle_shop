@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: stg_orders
+    description: staging layer for all orders
     columns:
       - name: order_id
+        description: Primary Key
         tests:
           - unique
           - not_null
@@ -13,8 +15,10 @@ models:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
   - name: stg_payments
+    description: staging layer for all payments with a FK to order
     columns:
       - name: payment_id
+        description: Primary Key
         tests:
           - unique
           - not_null
@@ -22,3 +26,12 @@ models:
         tests:
           - accepted_values:
               values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+
+  - name: stg_customers
+    description: staging layer for all customers, PII hashed
+    columns:
+      - name: customer_id
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
