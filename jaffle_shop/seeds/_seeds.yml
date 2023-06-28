@@ -1,0 +1,38 @@
+version: 2
+
+seeds:
+  - name: dbt_project_evaluator_exceptions
+    description: >
+      Stop check on staging models refer to other staging models from failing
+    config:
+      column_types:
+        fct_name: string
+        column_name: string
+        id_to_exclude: string
+        comment: string
+  - name: raw_customers
+    description: >
+      Csv of all customers names and id
+    config:
+      column_types:
+        id: bigint
+        first_name: string
+        last_name: string
+  - name: raw_payments
+    description: >
+      Csv of all orders, payment methods and amounts
+    config:
+      column_types:
+        id: bigint
+        order_id: bigint
+        payment_method: string
+        amount: bigint
+  - name: raw_orders
+    description: >
+      Csv of all orders, payment methods and amounts
+    config:
+      column_types:
+        id: bigint
+        user_id: bigint
+        order_date: date
+        status: string
