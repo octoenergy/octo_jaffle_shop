@@ -29,7 +29,7 @@ seeds:
         amount: bigint
   - name: raw_orders
     description: >
-      Csv of all orders, payment methods and amounts
+      Csv of all orders, dates and status
     config:
       column_types:
         id: bigint
