@@ -1,6 +1,6 @@
 {% set return_states = ['returned', 'return_pending'] %}
 
-select 
+SELECT
     orders.customer_id 
 
     {% for return_state in return_states -%}
@@ -9,6 +9,6 @@ select
     
     , SUM(orders.amount_dollars) AS sum_return_amount_dollars
 
-from {{ ref('wh_orders') }} AS orders
-where orders.status IN ('returned', 'return_pending')
+FROM {{ ref('wh_orders') }} AS orders
+WHERE orders.status IN ('returned', 'return_pending')
 GROUP BY orders.customer_id

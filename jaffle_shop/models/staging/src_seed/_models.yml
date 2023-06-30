@@ -1,6 +1,37 @@
 version: 2
 
 models:
+  - name: stg_customers_pii
+    description: > 
+      Table that includes all info about all customers, with PII hashed
+    columns:
+      - name: customer_id
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_customers
+    description: staging layer for all customers, PII hashed
+    columns:
+      - name: customer_id
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
   - name: stg_orders
     description: staging layer for all orders
     columns:
@@ -26,12 +57,3 @@ models:
         tests:
           - accepted_values:
               values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
-
-  - name: stg_customers
-    description: staging layer for all customers, PII hashed
-    columns:
-      - name: customer_id
-        description: Primary Key
-        tests:
-          - unique
-          - not_null
