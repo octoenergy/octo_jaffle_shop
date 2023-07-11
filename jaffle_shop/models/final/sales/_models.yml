@@ -1,7 +1,20 @@
 version: 2
 
+exposures:
+  - name: new_customer_history
+    description: Inksacio App to show monthly new customer history
+    type: dashboard
+    url: https://inksacio.eks.octojaffle.engineering/new_customer_history/
+    owner:
+      name: 'Elliot Taylor'
+      email: elliot.taylor@octojaffle.com
+    depends_on:
+      - ref('fnl_sales_newcustomerhistory')
 models:
   - name: fnl_sales_newcustomerhistory
+    meta:
+      owner: elliot.taylor@octojaffle.com
+      team_owner: '!subteam^S7K9CR63D' #@datateam
     description: > 
       This table gives one row per truncated month with the count 
       of customers that have created their first order within this month

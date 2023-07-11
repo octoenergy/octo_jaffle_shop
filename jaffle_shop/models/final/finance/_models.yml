@@ -1,7 +1,22 @@
 version: 2
 
+exposures:
+  - name: customer_return_total
+    description:
+      Inksacio App to show the total sum of customer returns
+      , per customer (for both completed and upcoming)
+    type: dashboard
+    url: https://inksacio.eks.octojaffle.engineering/customer_return_totals/
+    owner:
+      name: 'Elliot Taylor'
+      email: elliot.taylor@octojaffle.com
+    depends_on:
+      - ref('fnl_finance_customerreturnstotal')
 models:
   - name: fnl_finance_customerreturnstotal
+    meta:
+      owner: elliot.taylor@octojaffle.com
+      team_owner: '!subteam^S7K9CR63D' #@datateam
     description: > 
       This table gives one row per customer, with the total of their completed returns,
       pending_returns and the sum of the 2

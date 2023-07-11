@@ -5,18 +5,17 @@ WITH source AS (
     our data in this project
     #}
     SELECT *
-    FROM {{ ref('raw_orders') }}
+    FROM {{ ref('raw_customers') }}
 
 ),
 
 renamed AS (
 
-  SELECT
-    id AS order_id
-    , user_id AS customer_id
-    , order_date
-    , status
-  FROM source
+    SELECT
+        id AS customer_id
+        , first_name
+        , last_name
+    FROM source
 
 )
 
