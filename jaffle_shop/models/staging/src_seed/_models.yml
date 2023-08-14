@@ -16,12 +16,12 @@ models:
         meta:
           sensitive: true
 
-    - name: stg_customers
-      columns:
-        - name: customer_id
-          tests:
-            - unique
-            - not_null
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
   - name: stg_orders
     columns:
       - name: order_id
