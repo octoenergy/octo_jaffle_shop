@@ -5,6 +5,8 @@ exposures:
     description: Data source for dashboard tool
     type: dashboard
     url:  https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: potato.person@octojaffle.com
     depends_on:
       - ref('fnl_sales_newcustomermonth')
 models:
