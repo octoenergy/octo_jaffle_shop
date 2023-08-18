@@ -1,5 +1,5 @@
 SELECT
-  user_id
+  customer_id
   , sum(amount) AS total_returned_amount
 FROM {{ ref('wh_orders') }}
 WHERE

@@ -4,6 +4,7 @@ models:
   - name: fnl_sales_newcustomers
     columns:
       - name: month
+        description: Primary key
         tests:
           - unique
           - not_null
