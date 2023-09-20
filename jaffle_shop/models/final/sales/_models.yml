@@ -15,7 +15,7 @@ exposures:
   - name: fnl_sales_newcustomers
     description: Dashboard showing the number and value of new customers per month
     type: dashboard
-    url: url: https://inksacio.eks.octopus.engineering/sales-newcustomers/
+    url: https://inksacio.eks.octopus.engineering/sales-newcustomers/
     owner:
       email: john.pilgrim@octoenergy.com
     depends_on:
