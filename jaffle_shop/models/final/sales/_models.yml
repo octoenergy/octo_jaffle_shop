@@ -4,7 +4,7 @@ models:
   - name: fnl_sales_newcustomers
     description: This table has some basic information about the number of first time customers per month
     columns:
-      - name: order_month
+      - name: first_order_month
         description: Primary key
         tests:
           - unique
@@ -19,4 +19,4 @@ exposures:
     owner:
       email: john.pilgrim@octoenergy.com
     depends_on:
-      - ref('fnl_sales_newcustomers')
+      - ref('wh_customers')

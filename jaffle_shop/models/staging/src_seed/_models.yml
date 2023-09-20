@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: stg_customers_pii
+    description: This table has basic information about a customer and contains PII
     columns:
       - name: customer_id
         tests:
@@ -13,8 +14,8 @@ models:
       - name: last_name
         meta:
           sensitive: true
-models:
   - name: stg_customers
+    description: This table has basic information about a customer
     columns:
       - name: customer_id
         tests:
@@ -27,6 +28,7 @@ models:
         tests:
           - dbt_expectations.expect_column_to_exist
   - name: stg_orders
+    description: This table has basic information about orders
     columns:
       - name: order_id
         tests:
@@ -37,6 +39,7 @@ models:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
   - name: stg_payments
+    description: This table has basic information about payments
     columns:
       - name: payment_id
         tests:

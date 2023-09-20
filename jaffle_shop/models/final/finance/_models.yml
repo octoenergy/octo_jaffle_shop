@@ -23,4 +23,4 @@ exposures:
     owner:
       email: john.pilgrim@octoenergy.com
     depends_on:
-      - ref('fnl_finance_orders')
+      - ref('wh_orders')

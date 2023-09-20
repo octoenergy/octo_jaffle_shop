@@ -1,12 +1,10 @@
 WITH first_orders AS (
     SELECT
         *
-    FROM {{ ref('wh_orders') }}
-    QUALIFY
-        ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY created_at ASC) = 1
+    FROM {{ ref('wh_customers') }}
 )
 
 SELECT
-    TRUNC(order_date, "MM") AS order_month
+    TRUNC(first_order, "MM") AS first_order_month
     , COUNT(DISTINCT customer_id) AS new_customer_count
 FROM first_orders
