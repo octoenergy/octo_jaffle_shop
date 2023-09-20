@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: fnl_finance_orders
+    description: This table has some basic information about the amount and value of orders made per customer split by order status
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+      - name: total_orders
+        description: This is the total number of orders made by a customer
+      - name: total_amount
+        description: This is the total amount of money spent by a customer
+      - name: order_status
+        description: This is the status of the order
+exposures:
+  - name: fnl_finance_orders
+    description: Dashboard showing the number and value of orders made per customer split by order status
+    type: dashboard
+    url: url: https://inksacio.eks.octopus.engineering/finance-orders/
+    owner:
+      email: john.pilgrim@octoenergy.com
+    depends_on:
+      - ref('fnl_finance_orders')
