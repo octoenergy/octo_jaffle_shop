@@ -11,9 +11,9 @@ with source as (
 renamed as (
 
     select
-        id as payment_id,
-        order_id,
-        payment_method,
+        CAST(id AS BIGINT) AS payment_id,
+        CAST(order_id AS BIGINT) AS order_id,
+        NULLIF(payment_method,"") AS payment_method,
 
         -- `amount` is currently stored in cents, so we convert it to dollars
         amount / 100 as amount

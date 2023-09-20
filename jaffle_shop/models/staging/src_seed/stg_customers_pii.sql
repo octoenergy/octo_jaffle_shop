@@ -11,9 +11,9 @@ with source as (
 renamed as (
 
     select
-        id as customer_id,
-        first_name,
-        last_name
+        CAST(id AS BIGINT) as customer_id,
+        NULLIF(first_name,"") as first_name,
+        NULLIF(last_name,"") as last_name
 
     from source
 

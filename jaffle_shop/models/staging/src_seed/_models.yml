@@ -20,8 +20,12 @@ models:
         tests:
           - unique
           - not_null
-      - name: first_name
-      - name: last_name
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
   - name: stg_orders
     columns:
       - name: order_id

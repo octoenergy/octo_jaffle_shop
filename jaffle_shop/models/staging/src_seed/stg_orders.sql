@@ -11,10 +11,10 @@ with source as (
 renamed as (
 
     select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
+        CAST(id AS BIGINT) AS order_id,
+        CAST(user_id AS BIGINT) AS customer_id,
+        CAST(order_date AS DATE) AS order_date,
+        NULLIF(status, "") AS order_status
 
     from source
 
