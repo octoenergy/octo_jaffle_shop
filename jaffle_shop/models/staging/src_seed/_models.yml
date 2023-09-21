@@ -5,6 +5,7 @@ models:
     description: This table has basic information about a customer and contains PII
     columns:
       - name: customer_id
+        description: Primary key
         tests:
           - unique
           - not_null
@@ -18,6 +19,7 @@ models:
     description: This table has basic information about a customer
     columns:
       - name: customer_id
+        description: Primary key
         tests:
           - unique
           - not_null
@@ -31,6 +33,7 @@ models:
     description: This table has basic information about orders
     columns:
       - name: order_id
+        description: Primary key
         tests:
           - unique
           - not_null
@@ -42,6 +45,7 @@ models:
     description: This table has basic information about payments
     columns:
       - name: payment_id
+        description: Primary key
         tests:
           - unique
           - not_null

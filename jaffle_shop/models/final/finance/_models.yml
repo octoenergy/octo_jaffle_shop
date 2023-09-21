@@ -5,7 +5,7 @@ models:
     description: This table has some basic information about the amount and value of orders made per customer split by order status
     columns:
       - name: customer_id
-        description: This is a unique identifier for a customer
+        description: Primary key
         tests:
           - unique
           - not_null
