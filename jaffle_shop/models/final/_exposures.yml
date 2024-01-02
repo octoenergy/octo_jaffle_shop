@@ -5,7 +5,7 @@ exposures:
     label: New customers
     description: Inksacio dashboard
     type: dashboard
-    url: url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
     owner:
       email: maja.cernja@krakentechnologies.ltd
     depends_on:
@@ -14,7 +14,7 @@ exposures:
     label: Value of returns per customer
     description: Inksacio dashboard
     type: dashboard
-    url: url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
     owner:
       email: maja.cernja@krakentechnologies.ltd
     depends_on:
