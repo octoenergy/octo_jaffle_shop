@@ -4,6 +4,7 @@ models:
   - name: stg_customers_pii
     meta:
       owner: "maja.cernja@krakentechnologies.ltd"
+      sensitive: true
     description: List of jaffle shop customers
     columns:
       - name: customer_id
