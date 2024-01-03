@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: wh_jaffle_customers
+  - name: wh_customers
     meta:
       owner: "maja.cernja@krakentechnologies.ltd"
     description: |
@@ -32,7 +32,7 @@ models:
       - name: total_order_amount
         description: Total value (AUD) of a customer's orders
 
-  - name: wh_jaffle_orders
+  - name: wh_orders
     meta:
         owner: "maja.cernja@krakentechnologies.ltd"
     description: |
