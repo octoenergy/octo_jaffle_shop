@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    description: This table has basic information about a customer and contains PII
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+  - name: stg_customers
+    description: This table has basic information about a customer
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+  - name: stg_orders
+    description: This table has basic information about orders
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+  - name: stg_payments
+    description: This table has basic information about payments
+    columns:
+      - name: payment_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']

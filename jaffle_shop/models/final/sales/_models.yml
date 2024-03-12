@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fnl_sales_newcustomers
+    description: This table has some basic information about the number of first time customers per month
+    columns:
+      - name: first_order_month
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: new_customer_count
+        description: New customer count per month
+exposures:
+  - name: fnl_sales_newcustomers
+    description: Dashboard showing the number and value of new customers per month
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/sales-newcustomers/
+    owner:
+      email: john.pilgrim@octoenergy.com
+    depends_on:
+      - ref('wh_customers')
