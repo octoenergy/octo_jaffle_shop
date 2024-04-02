@@ -1,0 +1,20 @@
+version: 2
+
+exposures:
+  - name: fnl_sales_newcustomermonth
+    description: Data source for dashboard tool
+    type: dashboard
+    url:  https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: potato.person@octojaffle.com
+    depends_on:
+      - ref('fnl_sales_newcustomermonth')
+models:
+  - name: fnl_sales_newcustomermonth
+    description: One row per month. Gives the number of customers to make their first order for that month
+    columns:
+      - name: first_order_month
+        description: The month that the first order was made
+        tests:
+          - unique
+          - not_null

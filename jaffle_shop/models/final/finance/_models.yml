@@ -1,0 +1,20 @@
+version: 2
+
+exposures:
+  - name: fnl_finance_customerreturns
+    description: Data source for dashboard tool
+    type: dashboard
+    url:  https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: potato.person@octojaffle.com
+    depends_on:
+      - ref('fnl_finance_customerreturns')
+models:
+  - name: fnl_finance_customerreturns
+    description: One row per customer. Gives the total value of returns made by that customer
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
