@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    meta:
+      owner: "maja.cernja@krakentechnologies.ltd"
+      sensitive: true
+    description: List of jaffle shop customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_customers
+    meta:
+      owner: "maja.cernja@krakentechnologies.ltd"
+    description: List of customer ids
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_columns_to_exist
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_columns_to_exist
+
+  - name: stg_orders
+    meta:
+      owner: "maja.cernja@krakentechnologies.ltd"
+    description: List of customer orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+      - name: order_date
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+
+  - name: stg_payments
+    meta:
+      owner: "maja.cernja@krakentechnologies.ltd"
+    description: List of payments
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+      - name: amount
+  
