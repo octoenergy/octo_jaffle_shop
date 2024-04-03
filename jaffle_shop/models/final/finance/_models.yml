@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fnl_finance_returns_by_customer
+    meta:
+      owner: 'example.email@octoenergy.com'
+    description:
+      Table with value of completed returns by customer
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: total_returned
+        description: Total value of completed returns made by customer, excluding pending returns

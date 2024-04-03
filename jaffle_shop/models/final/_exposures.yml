@@ -1,0 +1,21 @@
+version: 2
+
+exposures:
+  - name: fnl_finance_returns_by_customer
+    label: fnl_finance_returns_by_customer
+    description: Inksacio data app with dashboard for dbt certification
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: example.email@octoenergy.com
+    depends_on:
+      - ref('fnl_finance_returns_by_customer')
+  - name: fnl_sales_newcustomers
+    label: fnl_sales_newcustomers
+    description: Inksacio data app with dashboard for dbt certification
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: example.email@octoenergy.com
+    depends_on:
+      - ref('fnl_sales_newcustomers')

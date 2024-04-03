@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_customers
+    meta:
+      owner: 'example.email@octoenergy.com'
+    description:
+      Customer data with PII information hashed
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: stg_customers_pii
+    meta:
+      owner: 'example.email@octoenergy.com'
+      sensitive: true
+    description:
+      Customer data with PII information exposed
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_orders
+    meta:
+      owner: 'example.email@octoenergy.com'
+    description:
+      All orders made by customers
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+  - name: stg_payments
+    meta:
+      owner: 'example.email@octoenergy.com'
+    description:
+      All payments made by customers
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
