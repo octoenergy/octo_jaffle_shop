@@ -2,6 +2,8 @@ version: 2
 
 models:
   - name: wh_customers
+    meta:
+      owner: 'example.email@octoenergy.com'
     description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
 
     columns:
@@ -12,10 +14,10 @@ models:
           - not_null
 
       - name: first_name
-        description: Customer's first name. PII.
+        description: Customer's first name, hashed for privacy
 
       - name: last_name
-        description: Customer's last name. PII.
+        description: Customer's last name, hashed for privacy
 
       - name: first_order
         description: Date (UTC) of a customer's first order
@@ -30,6 +32,8 @@ models:
         description: Total value (AUD) of a customer's orders
 
   - name: wh_orders
+    meta:
+      owner: 'example.email@octoenergy.com'
     description: This table has basic information about orders, as well as some derived facts based on payments
 
     columns:
