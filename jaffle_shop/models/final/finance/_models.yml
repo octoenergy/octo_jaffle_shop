@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fnl_finance_returnedorders
+    description: This table contains the total value of all orders for each customer
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+      - name: returned_order_value
+        description: Total returned order value for a customer

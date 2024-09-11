@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: finance
+    label: financial analysis
+    description: Inksacio dashboard, contains finance data
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/cert_finance_dashboard/
+    owner:
+      email: jack.williamson@kraken.tech
+    depends_on:
+      - ref('fnl_finance_returnedorders')

@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fnl_sales_monthlynewcustomers
+    description: This table contains the number of new customers each month
+    columns:
+      - name: first_order_month
+        description: The month of first orders
+        tests:
+          - unique
+          - not_null
+      - name: new_customers
+        description: Number of new customer orders

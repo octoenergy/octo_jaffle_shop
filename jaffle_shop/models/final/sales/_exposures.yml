@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: sales
+    label: sales analysis
+    description: Inksacio dashboard, contains sales data
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/cert_sales_dashboard/
+    owner:
+      email: jack.williamson@kraken.tech
+    depends_on:
+      - ref('fnl_sales_monthlynewcustomers')

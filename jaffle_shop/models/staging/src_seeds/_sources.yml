@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: src_seeds
+    schema: "{{ var('seeds_db', 'src_seeds') }}"
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_payments

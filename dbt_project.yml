@@ -27,3 +27,6 @@ models:
       materialized: table
       staging:
         materialized: view
+
+vars:
+  seed_db: src_seeds
