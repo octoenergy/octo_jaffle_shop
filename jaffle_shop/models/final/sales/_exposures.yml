@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: fnl_sales_newcustomersmonthly
+    label: fnl_sales_newcustomersmonthly
+    description: Inksacio data app with dashboard showing the total number of new customers per month
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: luke.ralphs-davies@octoenergy.com
+    depends_on:
+      - ref('fnl_sales_newcustomersmonthly')

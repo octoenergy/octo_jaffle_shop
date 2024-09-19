@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fnl_sales_newcustomersmonthly
+    access: public
+    config:
+      group: industry_operations
+    meta:
+      owner: luke.ralphs-davies@octoenergy.com
+    description: |
+      This model contains one row per month and the total number of customers making their first order in that month.
+    columns:
+      - name: first_order_month
+        tests:
+          - unique
+          - not_null
