@@ -8,6 +8,7 @@ dbt-core = "==1.3.0"
 dbt-databricks = {extras = ["odbc"]}
 pytest-mock = "*"
 glob2 = "*"
+numpy = "==1.24.1"
 
 [dev-packages]
 pytest = "*"

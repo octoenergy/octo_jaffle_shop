@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    config:
+      tags: ['access:private']
+    meta: 
+      owner: 'matthew.parker@octoenergy.com'
+    description: |
+      Staging table for csv containing customer information.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+  - name: stg_customers
+    config:
+      tags: ['access:private']
+    meta: 
+      owner: 'matthew.parker@octoenergy.com'
+    description: |
+      Staging table for csv containing customer information with PII columns hashed.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist
+
+  - name: stg_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+  - name: stg_payments
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']

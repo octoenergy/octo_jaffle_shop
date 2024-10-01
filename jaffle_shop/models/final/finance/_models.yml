@@ -1,0 +1,17 @@
+version: 2
+
+models: 
+  - name: fnl_finance_returned_orders
+    config:
+      tags: ['access:public']
+    meta:
+      owner: 'matthew.parker@octoenergy.com'
+    description: |
+      Report on the value of returned orders. 1 row per customer with total returned value for 
+      that customer
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null

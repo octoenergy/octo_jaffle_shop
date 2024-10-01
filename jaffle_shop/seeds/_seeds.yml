@@ -1,0 +1,30 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: |
+      Table containing customer_id, and their first and last name.
+    config:
+      column_types:
+        id: int
+        first_name: string
+        last_name: string
+  - name: raw_orders
+    description: |
+      Table containing information about customers orders
+    config:
+      column_types:
+        id: int
+        user_id: int
+        order_date: date
+        status: string
+  - name: raw_payments
+    description: |
+      Table containing information about customers payments
+    config:
+      column_types:
+        id: int
+        order_id: int
+        payment_method: string
+        amount: int
+

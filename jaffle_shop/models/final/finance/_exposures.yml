@@ -1,0 +1,14 @@
+version: 2
+
+################################################################################
+# EXPOSURES      https://docs.getdbt.com/reference/exposure-properties
+################################################################################
+exposures:
+  - name: fnl_finance_returned_orders
+    description: Inksacio Dashboard
+    type: dashboard
+    url: url: https://inksacio.uk.octopus.engineering/my_certification_finance_dashboard/
+    owner:
+      email: matthew.parker@octoenergy.com
+    depends_on:
+      - ref('fnl_finance_returned_orders')

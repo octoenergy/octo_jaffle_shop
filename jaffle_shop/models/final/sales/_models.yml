@@ -1,0 +1,16 @@
+version: 2
+
+models: 
+  - name: fnl_sales_first_orders
+    config:
+      tags: ['access:public']
+    meta:
+      owner: 'matthew.parker@octoenergy.com'
+    description: |
+      Report on the numbers of customers making their first order per month.
+    columns:
+      - name: first_order_month
+        description: Primary key
+        tests:
+          - unique
+          - not_null
