@@ -1,0 +1,76 @@
+version: 2
+
+models: 
+  - name: stg_customers_pii
+    access: private
+    config:
+      group: example_group
+    meta:
+      owner: 'example.person@octoenergy.com'
+      team_owner: 'example_team@octoenergy.com'
+      sensitive: true
+    description: Table containing customer name information with PII included.
+    columns:
+      - name: customer_id 
+        tests:
+          - unique 
+          - not_null
+        - name: first_name 
+          meta:
+            sensitive: true
+        - name: last_name 
+          meta:
+            sensitive: true
+  - name: stg_customers
+    access: private
+    config:
+      group: example_group
+    meta:
+      owner: 'example.person@octoenergy.com'
+      team_owner: 'example_team@octoenergy.com'
+    description: Table containing customer name information with PII hashed
+    columns:
+      - name: customer_id 
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist 
+      - name: last_name_hash
+        tests:
+          - dbt_expectations.expect_column_to_exist 
+  - name: stg_orders 
+    access: private
+    config:
+      group: example_group
+    meta:
+      owner: 'example.person@octoenergy.com'
+      team_owner: 'example_team@octoenergy.com'
+    description: Table containing customer orders.
+    columns:
+      - name: order_id 
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+  - name: stg_payments
+    access: private
+    config:
+      group: example_group
+    meta:
+      owner: 'example.person@octoenergy.com'
+      team_owner: 'example_team@octoenergy.com'
+    description: Table containing customer payments.
+    columns:
+      - name: payment_id 
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
