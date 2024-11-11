@@ -1,5 +1,5 @@
 init:
-	pipenv update
+	pipenv sync --dev
 	pipenv run dbt deps
 
 clean-env:
