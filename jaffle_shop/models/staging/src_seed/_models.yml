@@ -66,5 +66,5 @@ models:
         tests:
           - accepted_values:
               values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
-      - name: amount_dollars
+      - name: amount_aud
         description: The amount, in dollars, of the order

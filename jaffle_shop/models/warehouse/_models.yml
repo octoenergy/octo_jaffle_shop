@@ -20,7 +20,7 @@ models:
       - name: number_of_orders
         description: Count of the number of orders a customer has placed
 
-      - name: total_order_amount
+      - name: total_order_amount_aud
         description: Total value (AUD) of a customer's orders
 
   - name: wh_orders
@@ -38,7 +38,7 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('customers')
+              to: ref('wh_customers')
               field: customer_id
 
       - name: order_date
@@ -50,27 +50,27 @@ models:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
-      - name: amount
+      - name: total_amount_aud
         description: Total amount (AUD) of the order
         tests:
           - not_null
 
-      - name: credit_card_amount
+      - name: credit_card_amount_aud
         description: Amount of the order (AUD) paid for by credit card
         tests:
           - not_null
 
-      - name: coupon_amount
+      - name: coupon_amount_aud
         description: Amount of the order (AUD) paid for by coupon
         tests:
           - not_null
 
-      - name: bank_transfer_amount
+      - name: bank_transfer_amount_aud
         description: Amount of the order (AUD) paid for by bank transfer
         tests:
           - not_null
 
-      - name: gift_card_amount
+      - name: gift_card_amount_aud
         description: Amount of the order (AUD) paid for by gift card
         tests:
           - not_null

@@ -1,56 +1,47 @@
 {% set payment_methods = ['credit_card', 'coupon', 'bank_transfer', 'gift_card'] %}
 
-with orders as (
-
-    select * from {{ ref('stg_orders') }}
-
-),
-
-payments as (
-
-    select * from {{ ref('stg_payments') }}
-
-),
-
-order_payments as (
-
-    select
-        order_id,
-
-        {% for payment_method in payment_methods -%}
-        sum(case when payment_method = '{{ payment_method }}' then amount else 0 end) as {{ payment_method }}_amount,
-        {% endfor -%}
-
-        sum(amount) as total_amount
-
-    from payments
-
-    group by order_id
-
-),
-
-final as (
-
-    select
-        orders.order_id,
-        orders.customer_id,
-        orders.order_date,
-        orders.status,
-
-        {% for payment_method in payment_methods -%}
-
-        order_payments.{{ payment_method }}_amount,
-
-        {% endfor -%}
-
-        order_payments.total_amount as amount
-
-    from orders
-
-
-    left join order_payments
-        on orders.order_id = order_payments.order_id
-
+WITH orders_ AS (
+  SELECT *
+  FROM {{ ref('stg_orders') }}
 )
 
-select * from final
+, payments_ AS (
+  SELECT *
+  FROM {{ ref('stg_payments') }}
+)
+
+, order_payments_ AS (
+  SELECT
+    order_id
+    {% for payment_method in payment_methods -%}
+    , SUM(
+      CASE
+        WHEN when payment_method = '{{ payment_method }}'
+          THEN amount
+        ELSE 0
+      END
+    ) AS {{ payment_method }}_amount_aud
+    {% endfor -%}
+    , SUM(amount_aud) AS total_amount_aud
+  FROM payments_
+  GROUP BY order_id
+)
+
+, final_ AS (
+  select
+    orders_.order_id
+    , orders_.customer_id
+    , orders_.order_date
+    , orders_.status
+    {% for payment_method in payment_methods -%}
+    , order_payments_.{{ payment_method }}_amount_aud,
+    {% endfor -%}
+    , order_payments_.total_amount_aud
+  FROM orders_
+  LEFT JOIN order_payments_
+    ON orders_.order_id = order_payments_.order_id
+)
+
+
+SELECT *
+FROM final_
