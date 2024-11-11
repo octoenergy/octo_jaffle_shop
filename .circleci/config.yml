@@ -3,7 +3,7 @@ version: 2.1
 executors:
   standard:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.10
     working_directory: "~/lib"
 
 # -----------------
