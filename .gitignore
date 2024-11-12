@@ -9,3 +9,5 @@ logs/
 # Python temp files
 *.pyc
 __pycache__
+
+*.duckdb
