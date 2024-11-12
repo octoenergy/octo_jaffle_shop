@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: 'nathan.lugg@kraken.tech'
+    description: A row per month with the number of customers that made their first order
+    columns:
+      - name: first_order_month
+        description: Primary key. The month we are counting the number of new customers in
+        tests:
+          - unique
+          - not_null
+      - name: num_new_customers
+        description: |
+          The number of new customers in the repsective month, where a new customer is
+          defined as a customer that made an order for the first time
+  - name: fnl_finance_returnsamout
+    meta:
+      owner: 'nathan.lugg@kraken.tech'
+    description: A row per customer (ID) and the amount (in AUD) of their returned orders
+    columns:
+      - name: customer_id
+        description: Primary key. The customer ID
+        tests:
+          - unique
+          - not_null
+      - name: total_returned_amount_aud
+        description: The total amount (in AUD) that the customer has returned
