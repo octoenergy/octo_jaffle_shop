@@ -1,0 +1,47 @@
+name: 'jaffle_shop'
+
+config-version: 2
+version: '0.1'
+
+profile: 'jaffle_shop'
+
+macro-paths: ["macros"]
+model-paths: ["models"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_modules"
+    - "logs"
+
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+dispatch:
+  # - macro_namespace: dbt_utils
+  #   search_order: ['dbt_project_evaluator', 'spark_utils', 'dbt_utils']
+  - macro_namespace: dbt
+    search_order: ['dbt_project_evaluator', 'dbt']
+
+models:
+  +file_format: delta
+
+  jaffle_shop:
+    +pk_required: true
+    +desc_required: true
+    +no_hardcoded_dbs: true
+
+    staging:
+      +materialized: view
+
+      src_seed:
+        +materialized: view
+
+    warehouse:
+      +materialized: table
+
+seeds:
+  dbt_project_evaluator:
+    dbt_project_evaluator_exceptions:
+      +enabled: false

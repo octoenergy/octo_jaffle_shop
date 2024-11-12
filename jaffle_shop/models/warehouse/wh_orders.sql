@@ -16,8 +16,8 @@ WITH orders_ AS (
     {% for payment_method in payment_methods -%}
     , SUM(
       CASE
-        WHEN when payment_method = '{{ payment_method }}'
-          THEN amount
+        WHEN payment_method = '{{ payment_method }}'
+          THEN amount_aud
         ELSE 0
       END
     ) AS {{ payment_method }}_amount_aud
@@ -34,7 +34,7 @@ WITH orders_ AS (
     , orders_.order_date
     , orders_.status
     {% for payment_method in payment_methods -%}
-    , order_payments_.{{ payment_method }}_amount_aud,
+    , order_payments_.{{ payment_method }}_amount_aud
     {% endfor -%}
     , order_payments_.total_amount_aud
   FROM orders_

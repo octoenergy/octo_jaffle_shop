@@ -1,6 +1,6 @@
 init:
-	pipenv sync --dev
-	pipenv run dbt deps
+	pipenv install
+	pipenv run dbt deps --project-dir jaffle_shop
 
 clean-env:
 	:> .env
@@ -11,21 +11,16 @@ env-development-salt:
 env-target:
 	echo DATABRICKS_TARGET=$$(git symbolic-ref --short HEAD | tr /- _) >> .env
 
-package-project:
-	for PACKAGE in dbt_project_evaluator ; do \
-		cp package_projects/$$PACKAGE.yml dbt_packages/$$PACKAGE/dbt_project.yml ; \
-	done
-
-build-env: clean-env env-development-salt env-target package-project
+build-env: clean-env env-development-salt env-target
 
 dbt-deps:
-	pipenv run dbt deps
+	pipenv run dbt deps --project-dir jaffle_shop
 
 dbt-build: build-env
-	pipenv run dbt build --selector jaffle_shop
+	pipenv run dbt build --selector jaffle_shop --project-dir jaffle_shop
 
 run-dbt-project-evaluator: dbt-deps build-env
-	pipenv run dbt --warn-error build --select package:dbt_project_evaluator dbt_project_evaluator_exceptions
+	pipenv run dbt --warn-error build --select package:dbt_project_evaluator dbt_project_evaluator_exceptions --project-dir jaffle_shop
 
 lint: build-env
 	pipenv run sqlfluff lint
@@ -34,7 +29,7 @@ format: build-env
 	pipenv run sqlfluff fix
 
 run-python-tests:
-	pipenv run pytest --quiet --show-capture=no --tb=no
+	pipenv run pytest jaffle_shop/testing --quiet --show-capture=no --tb=no
 
 run-python-tests-detailed:
-	pipenv run pytest
+	pipenv run pytest jaffle_shop/testing
