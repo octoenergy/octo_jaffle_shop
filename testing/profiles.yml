@@ -4,4 +4,4 @@ jaffle_shop:
     jaffle_shop:
       type: duckdb
       path: dbt.duckdb
-      threads: 300
+      threads: 10
