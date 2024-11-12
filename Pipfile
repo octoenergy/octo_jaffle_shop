@@ -4,14 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dbt-core = "==1.3.0"
-dbt-databricks = {extras = ["odbc"]}
-pytest-mock = "*"
+dbt-core = "==1.7.17"
+dbt-duckdb = "*"
+duckdb = "*"
 glob2 = "*"
 
 [dev-packages]
+altair = "*"
+jupyterlab = "*"
+pandas = "*"
+pyarrow = "*"
 pytest = "*"
 pytest-mock = "*"
+vl-convert-python = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.10"

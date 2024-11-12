@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    meta:
+      owner: 'nathan.lugg@kraken.tech'
+      sensitive: true
+    description: |
+      A table with a row per customer which simply contains their first_name, last_name,
+      and customer ID
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_customers
+    meta:
+      owner: 'nathan.lugg@kraken.tech'
+    description: |
+      A non-sensitive version of `stg_customers_pii` where the first_name and last_name
+      have been replaced with hashes
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+      - name: last_name_hash
+
+  - name: stg_orders
+    description: |
+      A row per order, where an order consists of:
+        - customer_id
+        - order_date
+        - status
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Foreign key referring to customer_id in `stg_customers_pii`/`stg_customers`
+      - name: order_date
+        description: The date the order was placed
+      - name: status
+        description: Current status of the order
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+  - name: stg_payments
+    description: |
+      A row per payment, where a payment consists of:
+        - order_id
+        - payment_menthod
+        - amount_aud
+    columns:
+      - name: payment_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Foreign key referring to order_id in `stg_orders`
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+      - name: amount_aud
+        description: The amount, in dollars, of the order
