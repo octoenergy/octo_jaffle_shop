@@ -41,6 +41,9 @@ models:
     warehouse:
       +materialized: table
 
+    final:
+      +materialized: table
+
 seeds:
   dbt_project_evaluator:
     dbt_project_evaluator_exceptions:
