@@ -37,6 +37,11 @@ models:
       - name: last_name_hash
 
   - name: stg_orders
+    description: |
+      A row per order, where an order consists of:
+        - customer_id
+        - order_date
+        - status
     columns:
       - name: order_id
         description: Primary key
@@ -54,6 +59,11 @@ models:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
   - name: stg_payments
+    description: |
+      A row per payment, where a payment consists of:
+        - order_id
+        - payment_menthod
+        - amount_aud
     columns:
       - name: payment_id
         description: Primary key
