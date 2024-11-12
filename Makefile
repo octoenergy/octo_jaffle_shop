@@ -20,7 +20,10 @@ dbt-build: build-env
 	pipenv run dbt build --selector jaffle_shop --project-dir jaffle_shop
 
 run-dbt-project-evaluator: dbt-deps build-env
-	pipenv run dbt --warn-error build --select package:dbt_project_evaluator dbt_project_evaluator_exceptions --project-dir jaffle_shop
+	pipenv run dbt --warn-error build \
+		--select package:dbt_project_evaluator dbt_project_evaluator_exceptions \
+		--select jaffle_shop \
+		--project-dir jaffle_shop
 
 lint: build-env
 	pipenv run sqlfluff lint
