@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+duckdb = "*"
 dbt-core = "==1.7.17"
-dbt-databricks = {extras = ["odbc"]}
+dbt-duckdb = "*"
 pytest-mock = "*"
 glob2 = "*"
 
