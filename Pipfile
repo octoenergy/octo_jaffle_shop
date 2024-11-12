@@ -4,13 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-duckdb = "*"
 dbt-core = "==1.7.17"
 dbt-duckdb = "*"
-pytest-mock = "*"
+duckdb = "*"
 glob2 = "*"
 
 [dev-packages]
+altair = "*"
+jupyterlab = "*"
+pandas = "*"
+pyarrow = "*"
 pytest = "*"
 pytest-mock = "*"
 
