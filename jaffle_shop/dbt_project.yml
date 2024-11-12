@@ -19,10 +19,10 @@ clean-targets:
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 dispatch:
-  # - macro_namespace: dbt_utils
-  #   search_order: ['dbt_project_evaluator', 'spark_utils', 'dbt_utils']
-  - macro_namespace: dbt
-    search_order: ['dbt_project_evaluator', 'dbt']
+  - macro_namespace: dbt_utils
+    search_order: ['dbt_project_evaluator', 'spark_utils', 'dbt_utils']
+  # - macro_namespace: dbt
+  #   search_order: ['dbt_project_evaluator', 'dbt']
 
 models:
   +file_format: delta
@@ -45,3 +45,15 @@ seeds:
   dbt_project_evaluator:
     dbt_project_evaluator_exceptions:
       +enabled: false
+
+vars:
+  dbt_project_evaluator:
+    model_types: ['staging', 'intermediate', 'warehouse', 'final', 'metrics']
+    staging_folder_name: 'staging'
+    staging_prefixes: ['stg_']
+    intermediate_folder_name: 'intermediate'
+    intermediate_prefixes: ['int_', 'inter_']
+    warehouse_folder_name: 'warehouse'
+    warehouse_prefixes: ['wh_']
+    final_folder_name: 'final'
+    final_prefixes: ['fnl_']
