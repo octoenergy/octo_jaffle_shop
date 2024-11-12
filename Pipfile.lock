@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "43969e8630da55f06729904607387083070c6b1ce6955c8b9e327a0cf73c59eb"
+            "sha256": "fedf7a76aff16c5d52bae3a59af88a0c38d1802867cd2f6cc324a1bd38b7bbdb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -2476,6 +2476,19 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
             "version": "==1.26.20"
+        },
+        "vl-convert-python": {
+            "hashes": [
+                "sha256:285bbadb1ce8a922c87f6e75a9544fe10a652d37bd4c1519fb93f90bab381588",
+                "sha256:51f99c58b1d0d74126455ece7d41972740cb4430b8dfdf7e0908270eed5be32d",
+                "sha256:8b50c492b640abb89a54a71e2c26f0f2d2c1cedc42030cc55bcc202670334724",
+                "sha256:90fba4356bd621bd31e72507a55e26dd13ebe79efa784715743116109afd0d47",
+                "sha256:962100d7670b9d35f9bb9745cdf590412f62f57c134b4a142340ba93a4dbddba",
+                "sha256:bc9e1f8ca0d8d3b3789c66e37cd6a8cf0a83406427d5143133346c2b5004485b"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==1.7.0"
         },
         "wcwidth": {
             "hashes": [

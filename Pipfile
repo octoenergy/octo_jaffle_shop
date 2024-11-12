@@ -16,6 +16,7 @@ pandas = "*"
 pyarrow = "*"
 pytest = "*"
 pytest-mock = "*"
+vl-convert-python = "*"
 
 [requires]
 python_version = "3.10"
