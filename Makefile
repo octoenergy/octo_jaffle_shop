@@ -29,7 +29,7 @@ format: build-env
 	pipenv run sqlfluff fix
 
 run-python-tests:
-	pipenv run pytest jaffle_shop/testing --quiet --show-capture=no --tb=no
+	pipenv run pytest testing --quiet --show-capture=no --tb=no
 
 run-python-tests-detailed:
-	pipenv run pytest jaffle_shop/testing
+	pipenv run pytest testing
