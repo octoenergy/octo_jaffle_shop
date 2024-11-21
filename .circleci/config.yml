@@ -3,7 +3,7 @@ version: 2.1
 executors:
   standard:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.10
     working_directory: "~/lib"
 
 # -----------------
@@ -33,7 +33,7 @@ commands:
             - virtualenv-{{ .Environment.CACHE_VERSION }}-
       - run:
           name: Install Python packages
-          command: pipenv install --dev --system
+          command: pipenv sync --dev --system
       - save_cache:
           key: virtualenv-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
@@ -64,7 +64,7 @@ jobs:
     executor: standard
     environment:
       SALT: himalayan
-      DBT_PROFILES_DIR: ~/lib/testing/
+      DBT_PROFILES_DIR: testing
       TESTING_PROFILE_NAME: jaffle_shop
     steps:
       - checkout
