@@ -5,7 +5,10 @@ logs/
 
 **/.DS_Store
 .env
+.venv
 
 # Python temp files
 *.pyc
 __pycache__
+
+*.duckdb
