@@ -1,0 +1,32 @@
+version: 2
+
+exposures:
+  - name: new_customer_sales_dashboard
+    description: |
+      Number of new customer orders placed by month
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      name: Sam Milligan 
+      email: sam.milligan@kraken.tech
+    depends_on:
+     - ref('wh_customers')
+
+models:
+  - name: fnl_sales_new_customers
+    meta:
+      owner: 'sam.milligan@kraken.tech'
+      description: Total value of orders returned by customer
+    columns:
+      - name: month
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
+      - name: month_formatted
+        description: Formatted month
+        tests:
+          - not_null
+      - name: count_new_customer_orders
+        tests:
+          - not_null

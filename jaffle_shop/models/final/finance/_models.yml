@@ -1,0 +1,55 @@
+version: 2
+
+exposures:
+  - name: value_of_returned_orders_dashboard
+    description: |
+      Value of returned orders by customer
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard2/
+    owner:
+      name: Sam Milligan 
+      email: sam.milligan@kraken.tech
+    depends_on:
+     - ref('wh_orders')
+     - ref('wh_customers')
+
+models:
+  - name: fnl_finance_returned_orders
+    meta:
+      owner: 'sam.milligan@kraken.tech'
+      description: |
+        Number of new customer orders placed by month
+    columns:
+      - name: customer_id
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        description: Hash of customer's first name
+        tests:
+          - not_null
+      - name: last_name_hash
+        description: Hash of customer's last name
+        tests:
+          - not_null
+      - name: first_order
+        description: Date of a customer's first order
+        tests:
+          - not_null
+      - name: most_recent_order
+        description: Date of a customer's most recent order
+        tests:
+          - not_null
+      - name: number_of_orders
+        description: Count of the number of orders a customer has placed
+        tests:
+          - not_null
+      - name: customer_lifetime_value
+        description: Total value of a customer's orders
+        tests:
+          - not_null
+      - name: total_returned_amount
+        description: Total value of orders returned by customer
+        tests:
+          - not_null

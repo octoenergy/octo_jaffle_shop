@@ -1,0 +1,74 @@
+version: 2
+
+
+models:
+  - name: stg_customers_pii
+    meta:
+      owner: 'sam.milligan@kraken.tech'
+      sensitive: true
+      description: |
+        Customers staging table containing PII
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+
+      - name: first_name
+        meta:
+          sensitive: true
+        description: Customer's first name. PII.
+
+      - name: last_name
+        meta:
+          sensitive: true
+        description: Customer's last name. PII.
+
+  - name: stg_customers
+    meta:
+      owner: 'sam.milligan@kraken.tech'
+    description: |
+      Customers staging table with PII removed
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+
+      - name: first_name
+        description: Customer's first name.
+        
+      - name: last_name
+        description: Customer's last name.
+
+  - name: stg_orders
+    meta:
+      owner: 'sam.milligan@kraken.tech'
+      description: |
+        Orders staging table
+      columns:
+        - name: order_id
+          description: Primary Key
+          tests:
+            - unique
+            - not_null
+        - name: status
+          tests:
+            - accepted_values:
+                values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+  - name: stg_payments
+    meta:
+      owner: 'sam.milligan@kraken.tech'
+      description: |
+        Payments staging table
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']

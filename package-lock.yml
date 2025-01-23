@@ -1,0 +1,10 @@
+packages:
+- package: dbt-labs/dbt_utils
+  version: 1.3.0
+- package: dbt-labs/spark_utils
+  version: 0.3.0
+- package: dbt-labs/codegen
+  version: 0.13.1
+- package: dbt-labs/dbt_project_evaluator
+  version: 0.14.3
+sha1_hash: 59adf0a667e307048209cbea5ef70e871d6ec49a
