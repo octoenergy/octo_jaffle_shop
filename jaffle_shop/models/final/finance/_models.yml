@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fnl_finance_customerreturns
+    meta:
+      owner: 'caleb.buchanan@octopusenergy.nz'
+    description: |
+      Metrics on customer returns.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: total_returned

@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: customer_returns_dashboard
+    label: Customer returns dashboard
+    description: Dashboard shows value of returns by customers.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/customer_returns_dash/
+    owner:
+      email: caleb.buchanan@octopusenergy.nz
+    depends_on:
+      - ref('fnl_finance_customerreturns')
