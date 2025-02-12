@@ -3,4 +3,4 @@ SELECT
   , COUNT(customer_id) AS count_new_customers
 FROM {{ ref('wh_customers') }}
 WHERE first_order IS NOT NULL
-GROUP BY DATE_TRUNC('MONTH', first_order)
+GROUP BY order_month_year
