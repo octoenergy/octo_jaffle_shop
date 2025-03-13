@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fnl_sales_monthly_new_customer_count
+    description: Returns a monthly count of customers who made their first order that month.
+
+    columns:
+      - name: order_month
+        description: The start date of the reporting month 
+        tests:
+          - unique
+          - not_null
+
+      - name: new_customer_count
+        description: Count of customers making their first order in that month
