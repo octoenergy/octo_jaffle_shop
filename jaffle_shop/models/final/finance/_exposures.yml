@@ -1,0 +1,10 @@
+exposures:
+  - name: finance_returned_orders
+    label: Returned orders by customer
+    description: Dashboard shows the total value of orders returned by individual customers.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/returned_order_summary/
+    owner:
+      email: steve.young@octopusenergy.nz
+    depends_on:
+      - ref('fnl_finance_returned_orders')
