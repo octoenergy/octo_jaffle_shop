@@ -15,3 +15,5 @@ pytest-mock = "*"
 
 [requires]
 python_version = "3.8"
+sqlfluff = "*"
+sqlfluff-templater-dbt = "*"
