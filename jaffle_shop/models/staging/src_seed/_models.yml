@@ -1,7 +1,28 @@
 version: 2
 
 models:
+  - name: stg_customers_pii
+    meta:
+      owner: 'marcia'
+      sensitive: true
+    description: |
+      Contains customer details with personally identifiable information (PII).
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
   - name: stg_customers
+    meta:
+      owner: 'marcia'
+    description: |
+      Contains customer details with hashed PII.
     columns:
       - name: customer_id
         tests:

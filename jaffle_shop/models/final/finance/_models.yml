@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fnl_finance_returned_orders
+    description: |
+     Returns a list of the total value of all orders returned, grouped by customer.
+
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+
+      - name: total_returned_amount
+        description: Dollar amount of all orders

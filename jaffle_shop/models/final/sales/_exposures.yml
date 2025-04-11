@@ -1,0 +1,10 @@
+exposures:
+  - name: monthly_new_customer_count
+    label: Monthly customer first orders
+    description: Dashboard shows a count of customers making their first orders grouped by month.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/first_customer_orders/
+    owner:
+      email: steve.young@octopusenergy.nz
+    depends_on:
+      - ref('fnl_sales_monthly_new_customer_count')
