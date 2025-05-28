@@ -1,0 +1,15 @@
+version: 1
+
+models:
+  - name: fnl_total_returns
+    meta:
+      owner: 'malsha.ranawaka@kraken.tech'
+    description: Final table with the total amount of returns per customer.
+    columns: 
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: total_returns 
+        tests: 
+          - not_null

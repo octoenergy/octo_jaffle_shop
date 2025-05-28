@@ -1,0 +1,15 @@
+version: 1
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: 'malsha.ranawaka@kraken.tech'
+    description: Final table with the count of new customers per month.
+    columns:
+      - name: first_order_year_month
+        tests:
+          - unique
+          - not_null
+      - name: new_customers_count
+        tests:
+          - not_null
