@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    meta:
+      owner: 'malsha.ranawaka@kraken.tech'
+      sensitive: true
+    description: Staging table with customer data from source. Contains PII data.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_customers
+    meta:
+      owner: 'malsha.ranawaka@kraken.tech'
+    description: Staging table with customer data from source. PII data is hashed.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hashed
+      - name: last_name_hashed
+
+  - name: stg_orders
+    meta:
+      owner: 'malsha.ranawaka@kraken.tech'
+    description: Staging table with order data from source
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+  - name: stg_payments
+    meta:
+      owner: 'malsha.ranawaka@kraken.tech'
+    description: Staging table with payment data from source
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
