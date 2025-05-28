@@ -33,7 +33,7 @@ commands:
             - virtualenv-{{ .Environment.CACHE_VERSION }}-
       - run:
           name: Install Python packages
-          command: pipenv install
+          command: pipenv update
       - save_cache:
           key: virtualenv-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
