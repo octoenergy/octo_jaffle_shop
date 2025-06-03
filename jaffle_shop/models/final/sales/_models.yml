@@ -1,0 +1,25 @@
+version: 2
+
+exposures:
+  - name: New customer dashboard
+    description: A dashboard for showing new customers each month.
+    type: dashboard
+    url: https://an-example-dashboard-site.com
+    owner:
+      email: jaffle.mcjaffleson@gmail.com
+    depends_on:
+      - ref('fnl_sales_newcustomers')
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: 'jaffle.mcjaffleson@gmail.com'
+    description: This table has the count of customers making their first order by month.
+    columns:
+      - name: first_order_month
+        description: This is the month in which a customers first order was placed.
+        tests:
+          - unique
+          - not_null
+      - name: new_customer_count
+        description: Total count of new customers placing their first order.

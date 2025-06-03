@@ -2,13 +2,20 @@ version: 2
 
 models:
   - name: stg_customers
+    meta:
+      owner: 'jaffle.mcjaffleson@gmail.com'
+    description: >
+      Staging layer for customers' source data. Sensitive data is hashed.
     columns:
       - name: customer_id
         tests:
           - unique
           - not_null
-
   - name: stg_orders
+    meta:
+      owner: 'jaffle.mcjaffleson@gmail.com'
+    description: >
+      Staging layer for orders' source data.
     columns:
       - name: order_id
         tests:
@@ -18,8 +25,11 @@ models:
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
-
   - name: stg_payments
+    meta:
+      owner: 'jaffle.mcjaffleson@gmail.com'
+    description: >
+      Staging layer for payments' source data.
     columns:
       - name: payment_id
         tests:
