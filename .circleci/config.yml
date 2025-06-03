@@ -3,7 +3,7 @@ version: 2.1
 executors:
   standard:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.12
     working_directory: "~/lib"
 
 # -----------------
@@ -64,7 +64,7 @@ jobs:
     executor: standard
     environment:
       SALT: himalayan
-      DBT_PROFILES_DIR: ~/lib/testing/
+      DBT_PROFILES_DIR: /home/circleci/lib/testing/
       TESTING_PROFILE_NAME: jaffle_shop
     steps:
       - checkout

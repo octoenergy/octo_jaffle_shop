@@ -9,3 +9,6 @@ logs/
 # Python temp files
 *.pyc
 __pycache__
+
+# dbt packages lock
+package-lock.yml
