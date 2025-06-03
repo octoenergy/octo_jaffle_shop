@@ -1,0 +1,13 @@
+version: 2
+
+exposures:
+  - name: finance_returned_order_value_dashboard
+    label: Finance Dashboard
+    description: |
+      Dashboard showing the total value of orders returned by customer.
+    type: application
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: jaffle-shop@kraken.tech
+    depends_on:
+      - ref("fnl_sales_newcustomers")

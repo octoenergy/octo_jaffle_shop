@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_customers
+    meta:
+      sensitive: true
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null

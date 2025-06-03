@@ -27,3 +27,6 @@ models:
       materialized: table
       staging:
         materialized: view
+
+vars:
+  primary_key_test_macros: []

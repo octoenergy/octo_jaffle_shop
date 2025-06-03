@@ -1,0 +1,13 @@
+version: 2
+
+exposures:
+  - name: sales_new_customers_dashboard
+    label: Sales Dashboard
+    description: |
+      Dashboard showing number of new customers per month.
+    type: application
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: jaffle-shop@kraken.tech
+    depends_on:
+      - ref("fnl_sales_newcustomers")
