@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    access: public
+    config:
+      group: industry_operations
+    meta:
+      owner: luke.ralphs-davies@octoenergy.com
+      sensitive: true
+    description: |
+      This model contains one row per customer, alongside their first and last time.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_customers
+    access: public
+    config:
+      group: industry_operations
+    owner: luke.ralphs-davies@octoenergy.com
+    description: |
+      This model contains one row per customer, alongside their first and last time, which
+      are hashed to protect personally identifiable information (PII).
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    access: public
+    config:
+      group: industry_operations
+    owner: luke.ralphs-davies@octoenergy.com
+    description: |
+      This model contains one row per order made by a customer, alongside
+      the order date and status.
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+  - name: stg_payments
+    access: public
+    config:
+      group: industry_operations
+    owner: luke.ralphs-davies@octoenergy.com
+    description: |
+      This model contains one row per payment associated with an order, alongside
+      the payment method.
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']

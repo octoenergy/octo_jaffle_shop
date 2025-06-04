@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fnl_finance_customerreturns
+    access: public
+    config:
+      group: industry_operations
+    meta:
+      owner: luke.ralphs-davies@octoenergy.com
+    description: |
+      This model contains one row per customer and the total financial value of their returned orders.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null

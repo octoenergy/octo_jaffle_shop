@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: fnl_finance_customerreturns
+    label: fnl_finance_customerreturns
+    description: Inksacio data app with dashboard showing the financial value of customer returns
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: luke.ralphs-davies@octoenergy.com
+    depends_on:
+      - ref('fnl_finance_customerreturns')
