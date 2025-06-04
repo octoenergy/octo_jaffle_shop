@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fnl_new_customer_sales
+    config:
+      tags: [access:public]
+    meta:
+      owner: 'example.person@octoenergy.com'
+      team_owner: 'example_owner@octoenergy.com'
+    description: Table on the number of customers who have made their first orders per month.
+    columns:
+      - name: first_order_month
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null

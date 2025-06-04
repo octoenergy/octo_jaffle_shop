@@ -1,0 +1,15 @@
+version: 2
+
+################################################################################
+# EXPOSURES      https://docs.getdbt.com/reference/exposure-properties
+################################################################################
+
+exposures:
+  - name: fnl_new_customer_sales
+    description: Inksacio dashboard
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner: 
+      email: 'example.person@octoenergy.com'
+    depends_on:
+      - ref('fnl_new_customer_sales')

@@ -1,0 +1,26 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: CSV file containing customer name information
+    config:
+      column_types:
+        id: int 
+        first_name: string
+        last_name: string
+  - name: raw_orders
+    description: CSV file containing customer order information
+    config:
+      column_types:
+        id: int
+        user_id: int
+        order_date: date
+        status: string
+  - name: raw_payments
+    description: CSV file containing customer payment information
+    config:
+      column_types:
+        id: int
+        order_id: int
+        payment_method: string
+        amount: int

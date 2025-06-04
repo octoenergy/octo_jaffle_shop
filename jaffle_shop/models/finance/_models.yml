@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fnl_finance_order_returns
+    config:
+      tags: [access:public]
+    meta:
+      owner: 'example.person@octoenergy.com'
+      team_owner: 'example_owner@octoenergy.com'
+    description: Table containing the value of all returned orders, per customer.
+    columns:
+      - name: customer_id
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
