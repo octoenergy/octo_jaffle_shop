@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: 'caleb.buchanan@octopusenergy.nz'
+    description: |
+      Metrics on new customers.
+    columns:
+      - name: order_date
+        tests:
+          - unique
+          - not_null
+      - name: count_new_customers

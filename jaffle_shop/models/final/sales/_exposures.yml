@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: customer_first_orders
+    label: Customer first orders
+    description: Dashboard shows volume of customers making their first orders by month.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/first_time_customers/
+    owner:
+      email: caleb.buchanan@octopusenergy.nz
+    depends_on:
+      - ref('fnl_sales_newcustomers')
