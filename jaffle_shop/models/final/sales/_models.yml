@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fnl_finance_newcustomers
+    meta:
+      owner: 'first.last@octojaffle.shop'
+    description:
+      Number of new customers (defined as customers making their first order), by month.
+    columns:
+      - name: month_of_first_order
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fnl_finance_customerorderreturns
+    meta:
+      owner: 'first.last@octojaffle.shop'
+    description:
+      Table containing the value and volume of returned orders, by customer.
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
