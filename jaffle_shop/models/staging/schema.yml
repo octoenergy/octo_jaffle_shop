@@ -2,15 +2,42 @@ version: 2
 
 models:
   - name: stg_customers
+    description: Table containing information about customers. One row per customer.
+    meta:
+      owner: 'firstname.lastname@octojaffle.shop'
+      sensitive: true
     columns:
       - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+
+  - name: stg_customers_pii
+    description: Table containing information about customers. One row per customer.
+      Contains personally identifiable information (PII).
+    meta:
+      owner: 'firstname.lastname@octojaffle.shop'
+    columns:
+      - name: customer_id
+        description: Primary key
         tests:
           - unique
           - not_null
 
   - name: stg_orders
+    description: Table containing information about orders. One row per order.
+    meta:
+      owner: 'firstname.lastname@octojaffle.shop'
     columns:
       - name: order_id
+        description: Primary key
         tests:
           - unique
           - not_null
@@ -20,8 +47,12 @@ models:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
   - name: stg_payments
+    description: Table containing information about payments. One row per payment.
+    meta:
+      owner: 'firstname.lastname@octojaffle.shop'
     columns:
       - name: payment_id
+        description: Primary key
         tests:
           - unique
           - not_null
