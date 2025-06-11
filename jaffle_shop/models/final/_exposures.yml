@@ -1,0 +1,21 @@
+version: 2
+
+exposures:
+  - name: fnl_finance_customerorderreturns
+    label: fnl_finance_customerorderreturns
+    description: Value of returned orders, by customer.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: first.last@octojaffle.shop
+    depends_on:
+      - ref('fnl_finance_customerorderreturns')
+  - name: fnl_sales_newcustomers
+    label: fnl_sales_newcustomers
+    description: Number of new customers, by month.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: first.last@octojaffle.shop
+    depends_on:
+      - ref('fnl_sales_newcustomers')
