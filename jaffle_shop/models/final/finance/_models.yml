@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fnl_finance_order_totals
+    meta:
+      owner: 'example.email@octoenergy.com'
+    description: |
+      jj
+    columns:
+      - name: 
+        description: Primary key
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fnl_sales_first_sale_by_month
+    meta:
+      owner: 
+    description: |
+      jj
+    columns:
+      - name: 
+        description: Primary key
+        tests:
+          - unique
+          - not_null

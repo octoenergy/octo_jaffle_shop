@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: inksacio_app_smart_meter_eligibility_query
+    label: Inksacio App Smart Meter Eligibility Query
+    description: Inksacio app. To replace table go to OE github repo inksacio
+    type: application
+    url: https://inksacio.eks.octopus.engineering/sm-eligibility-query/
+    owner:
+      email: 
+    depends_on:
+      - ref('fnl_sales_first_sale_by_month')
