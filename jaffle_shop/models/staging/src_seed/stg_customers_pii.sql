@@ -15,7 +15,7 @@ renamed as (
         first_name,
         last_name
 
-    from source
+    from {{ ref('raw_customers') }}
 
 )
 
