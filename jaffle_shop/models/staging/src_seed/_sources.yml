@@ -1,10 +1,6 @@
 version: 2
 
-sources:
-  - name: src_seed
-    catalog: "{{ var('source_catalog' ) }}"
-    schema: "{{ var('src_seed') }}"
-    tables:
+seeds:
       - name: raw_customer
       - name: raw_orders
       - name: raw_payments
