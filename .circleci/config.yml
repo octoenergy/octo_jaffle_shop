@@ -64,7 +64,7 @@ jobs:
     executor: standard
     environment:
       SALT: himalayan
-      DBT_PROFILES_DIR: /home/circleci/lib/testing/
+      DBT_PROFILES_DIR: testing
       TESTING_PROFILE_NAME: jaffle_shop
     steps:
       - checkout
