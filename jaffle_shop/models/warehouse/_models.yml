@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: wh_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: wh_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
