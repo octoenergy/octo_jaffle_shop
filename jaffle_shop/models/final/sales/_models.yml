@@ -3,12 +3,15 @@ version: 2
 models:
   - name: fnl_sales_first_sale_by_month
     meta:
-      owner: 
+      owner: 'example.email@octoenergy.com'
     description: |
       jj
     columns:
-      - name: 
+      - name: first_order_month
         description: Primary key
         tests:
           - unique
           - not_null
+      - name: no_of_new_customers
+        description: number of rnew customers per month
+
