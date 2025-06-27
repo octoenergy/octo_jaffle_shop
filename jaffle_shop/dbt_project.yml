@@ -5,10 +5,10 @@ version: '0.1'
 
 profile: 'jaffle_shop'
 
-macro-paths: ["jaffle_shop/macros"]
-model-paths: ["jaffle_shop/models"]
-seed-paths: ["jaffle_shop/seeds"]
-snapshot-paths: ["jaffle_shop/snapshots"]
+macro-paths: ["macros"]
+model-paths: ["models"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
 
 target-path: "target"
 clean-targets:
