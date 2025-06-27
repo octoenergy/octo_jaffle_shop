@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_customers_pii
+    meta:
+      owner: 'example.email@octoenergy.com'
+      sensitive: true
+    description: |
+      Staging table for raw cutomer data which contains pii data
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
