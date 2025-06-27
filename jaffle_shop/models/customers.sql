@@ -18,7 +18,7 @@ payments as (
 
 customer_orders as (
 
-        select
+    select
         customer_id,
 
         min(order_date) as first_order,
@@ -38,8 +38,9 @@ customer_payments as (
 
     from payments
 
-    left join orders on
-         payments.order_id = orders.order_id
+    left join orders
+        on
+            payments.order_id = orders.order_id
 
     group by orders.customer_id
 
@@ -62,7 +63,7 @@ final as (
         on customers.customer_id = customer_orders.customer_id
 
     left join customer_payments
-        on  customers.customer_id = customer_payments.customer_id
+        on customers.customer_id = customer_payments.customer_id
 
 )
 

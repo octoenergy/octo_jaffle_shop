@@ -8,10 +8,11 @@ dbt-core = "==1.9.0"
 dbt-databricks = "==1.10.2"
 pytest-mock = "*"
 glob2 = "*"
+sqlfluff = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-mock = "*"
 
 [requires]
-python_version = "3.12"
+python_version = "3.11"
