@@ -18,13 +18,13 @@ order_payments AS (
         order_id,
 
         {% for payment_method in payment_methods -%}
-            sum(
-                case
-                    when
+            SUM(
+                CASE
+                    WHEN
                         payment_method = '{{ payment_method }}'
-                        then amount else
+                        THEN amount ELSE
                         0
-                and
+                END
             ) AS {{ payment_method }}_amount,
         {% endfor -%}
 
@@ -59,4 +59,6 @@ final AS (
 
 )
 
-SELECT * FROM final
+SELECT * 
+
+FROM final

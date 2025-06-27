@@ -67,4 +67,6 @@ final AS (
 
 )
 
-SELECT * FROM final
+SELECT * 
+
+FROM final
