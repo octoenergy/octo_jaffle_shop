@@ -9,9 +9,9 @@ models:
         tests:
           - unique
           - not_null
-      - name: first_name
+      - name: first_name_hash
         description: Customer's first name. PII.
-      - name: last_name
+      - name: last_name_hash
         description: Customer's last name. PII.
       - name: first_order
         description: Date (UTC) of a customer's first order
