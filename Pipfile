@@ -9,6 +9,7 @@ dbt-databricks = "==1.10.2"
 pytest-mock = "*"
 glob2 = "*"
 sqlfluff = "*"
+sqlfluff-templater-dbt = "*"
 
 [dev-packages]
 pytest = "*"

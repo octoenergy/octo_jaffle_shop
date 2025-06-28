@@ -34,9 +34,9 @@ customer_payments AS (
 
     SELECT
         orders.customer_id,
-        SUM(amount) AS total_amount
+        SUM(p.amount) AS total_amount
 
-    FROM payments
+    FROM payments AS p
 
     LEFT JOIN orders
         ON

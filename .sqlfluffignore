@@ -1,1 +1,4 @@
-stg_customer.sql
+target/
+dbt_packages/
+jaffle_shop/macros/
+jaffle_shop/models/staging/src_seed/stg_customers.sql

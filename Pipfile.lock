@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2cdba0da43e979410f55fd3d65afe6524dc0c000f0cc4629069cd9c406553ed1"
+            "sha256": "e8efdd512c303d501a21d06b9108fcaa167736dbf68192e08fac4a90cc171cb7"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.11"
+            "python_version": "3.10"
         },
         "sources": [
             {
@@ -400,6 +400,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==3.1.6"
+        },
+        "jinja2-simple-tags": {
+            "hashes": [
+                "sha256:54abf83883dcd13f8fd2ea2c42feeea8418df3640907bd5251dec5e25a6af0e3",
+                "sha256:7b7cfa92f6813a1e0f0b61b9efcab60e6793674753e1f784ff270542e80ae20f"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==0.6.1"
         },
         "jsonschema": {
             "hashes": [
@@ -1396,6 +1404,14 @@
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
+            "version": "==3.4.1"
+        },
+        "sqlfluff-templater-dbt": {
+            "hashes": [
+                "sha256:60d16c2ab6d89d2a3a623760deff87b84ef3c15d3cb83551b506d0091c1456d1",
+                "sha256:acbf4e38e75707e7e0f8b039ff4be24fc172b5953d856ea5d3ab8bbb4872a166"
+            ],
+            "index": "pypi",
             "version": "==3.4.1"
         },
         "sqlparams": {
