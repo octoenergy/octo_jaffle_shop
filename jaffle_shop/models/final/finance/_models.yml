@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fnl_finance_return_order_totals
+    meta:
+      owner: 'example.email@octoenergy.com'
+    description: |
+      
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: no_of_returned_orders
+        description: number of returns per customer id
+      - name: total_value
+        description: total value of returns per customer id

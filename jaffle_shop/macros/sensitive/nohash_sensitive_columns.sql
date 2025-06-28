@@ -4,7 +4,7 @@
 
     {% if join_key is not none -%}
         {{ hash_of_column(join_key) }}
-    {%- endif  %}
+    {%- endif %}
 
     {%- for column in meta_columns %}
         {{ column }}  {% if not loop.last %} , {% endif %}

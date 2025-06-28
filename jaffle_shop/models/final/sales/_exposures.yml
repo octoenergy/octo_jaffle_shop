@@ -1,0 +1,12 @@
+version: 2
+
+exposures:
+  - name: inksacio_app_my_certification_dashboard
+    label: Inksacio App My Certification Dashboard
+    description: Inksacio app for SLT overview
+    type: application
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: 'example.email@octoenergy.com'
+    depends_on:
+      - ref('fnl_sales_first_sale_by_month')
