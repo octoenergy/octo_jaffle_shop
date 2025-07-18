@@ -1,0 +1,9 @@
+exposures:
+  - name: finance_order_returns
+    description: Inksacio dashboard
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner: 
+      email: 'djamel.bouchelkia@octoenergy.com'
+    depends_on:
+      - ref('fnl_finance_order_returns')

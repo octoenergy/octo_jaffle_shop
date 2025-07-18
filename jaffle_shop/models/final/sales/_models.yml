@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: 'djamel'
+    description: "Final model for new customer sales."
+    columns:
+      - name: first_order_month
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null

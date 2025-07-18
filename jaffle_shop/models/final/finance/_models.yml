@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fnl_finance_order_returns
+    meta:
+      owner: 'djamel'
+    description: "Final model for new customer sales."
+    columns:
+      - name: customer_id
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
+      - name: total_returned_amount
+        description: Total amount returned by the customer

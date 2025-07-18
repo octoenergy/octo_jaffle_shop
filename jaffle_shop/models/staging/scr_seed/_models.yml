@@ -1,7 +1,23 @@
 version: 2
 
 models:
+  - name: stg_customers_pii
+    meta:
+      owner: 'djamel'
+      sensitive: true
+    description: "Staging model contains personally identifiable information (PII) data."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name : first_name
+        
+  
   - name: stg_customers
+    meta:
+      owner: 'djamel'
+    description: "Staging model contains hashed personally identifiable information."
     columns:
       - name: customer_id
         tests:
@@ -9,6 +25,9 @@ models:
           - not_null
 
   - name: stg_orders
+    meta:
+      owner: 'djamel'
+    description: "Staging model for orders data."
     columns:
       - name: order_id
         tests:
@@ -20,6 +39,9 @@ models:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
   - name: stg_payments
+    meta:
+      owner: 'djamel'
+    description: "Staging model for payments data."
     columns:
       - name: payment_id
         tests:
