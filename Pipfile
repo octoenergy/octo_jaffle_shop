@@ -12,6 +12,8 @@ glob2 = "*"
 [dev-packages]
 pytest = "*"
 pytest-mock = "*"
+sqlfluff = "*"
+sqlfluff-templater-dbt = "*"
 
 [requires]
 python_version = "3.12"
