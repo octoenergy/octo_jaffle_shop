@@ -1,0 +1,23 @@
+version: 2
+
+exposures:
+  - name: fnl_sales_newcustomers
+    description: Used in Inksacio app
+    type: application
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: will.carpenter@octoenergy.com
+    depends_on:
+      - ref('wh_customers')
+
+models:
+  - name: fnl_sales_newcustomers
+    description: This table contains the number of new customers per month
+    columns:
+      - name: month_start_date
+        description: This is a date representing the start of a month
+        tests:
+          - unique
+          - not_null
+      - name: new_customer_count
+        description: This is the number of new customers in a given month
