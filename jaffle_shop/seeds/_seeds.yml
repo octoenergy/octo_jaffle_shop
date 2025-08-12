@@ -1,0 +1,16 @@
+version: 2
+
+seeds:
+  - name: dbt_project_evaluator_exceptions
+    description: |
+      This seed contains exceptions for the dbt project evaluator.
+      It is used to define specific cases that should be ignored during evaluation.
+  - name: raw_customers
+    description: |
+      Customer information including PII fields.
+  - name: raw_orders
+    description: |
+      Order details including customer and payment information.
+  - name: raw_payments
+    description: |
+      Payment transactions with methods and amounts.

@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_customers 
+    meta:
+      owner: 'saif.widyatmoko@octoenergy.com'
+    description: |
+      This model contains customer data with hashed PII fields for privacy protection.
+      It is used to ensure that sensitive information is not exposed in the data warehouse.
+    columns:
+      - name: customer_id
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hashed
+        description: Hash of the first name for PII protection
+      - name: last_name_hashed
+        description: Hash of the last name for PII protection
+  - name: stg_customers_pii
+    meta:
+      owner: 'saif.widyatmoko@octoenergy.com
+    description: |
+      This model contains customer data with sensitive fields that are not hashed.
+      It is used for internal processes where PII is required, but access is restricted.
+    columns:
+      - name: customer_id
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: First name of the customer
+        meta:
+          sensitive: true
+      - name: last_name
+        description: Last name of the customer
+        meta:
+          sensitive: true
+  - name: stg_payments
+    meta: 
+      owner: 'saif.widyatmoko@octoenergy.com'
+    description: |
+      This model contains payment data with methods and amounts.
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+  - name: stg_orders
+    meta:
+      owner: 'saif.widyatmoko@octoenergy.com'
+    description: |
+      This model contains order data with customer and payment information.
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
