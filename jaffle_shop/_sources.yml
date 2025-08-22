@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: src_seed
+    schema: jaffle_shop
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_payments
