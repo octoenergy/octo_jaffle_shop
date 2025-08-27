@@ -1,0 +1,5 @@
+# SQLFluff ignore file
+# Add paths to files or directories that should be ignored by SQLFluff
+
+# Ignore the customers staging SQL model
+jaffle_shop/models/staging/src_seed/stg_customers.sql
