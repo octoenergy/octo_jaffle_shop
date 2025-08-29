@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fnl_orders_returned_by_customer
+    description: '{{ doc("orders_returned_by_customer") }}'
+    columns:
+      - name: customer_id
+        description: '{{ doc("orders_returned_by_customer_customer_id") }}'
+        tests:
+          - unique
+          - not_null
+      - name: orders_count
+        description: '{{ doc("orders_returned_by_customer_orders_count") }}'
+        tests:
+          - not_null
+      - name: total_amount
+        description: '{{ doc("orders_returned_by_customer_total_amount") }}'
+        tests:
+          - not_null
+
+exposures:
+  - name: finance_dashboard_customers_returns
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    depends_on:
+      - ref('fnl_orders_returned_by_customer')
+    owner:
+      email: lorenzo.campanile@kraken.tech
