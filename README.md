@@ -25,7 +25,7 @@ Use `make init` to get started with running the rest of the make commands.
 ### So what needs doing to the repo?
 
 The point of being a gatekeeper is being able to look at a PR and know where to look for possible convention breaches.
-Check the [data platform docs](http://docs.eks.octopus.engineering/reference/dbt_gatekeeper_checklist/) site for tips on how to gatekeep.  
+Check the [data platform docs](http://docs.data.octopus.engineering/reference/dbt_gatekeeper_checklist/) site for tips on how to gatekeep.  
 
 #### Fixes
 
@@ -54,7 +54,7 @@ Here are the fixes that need implementing:
             meta:
               sensitive: true
     ```
-   You can refer to [dbt Project Architecture](https://docs.eks.octopus.engineering/explanations/dbt_project_architecture/#PII) doc for further information on handling PII.
+   You can refer to [dbt Project Architecture](https://docs.data.octopus.engineering/explanations/dbt_project_architecture/#PII) doc for further information on handling PII.
 4) The `customers.sql` and `orders.sql` models are traditional warehouse models and should be in a `warehouse` directory with their respective `_docs.md` and `_models.yml` files.
 5) We use a package to test the structure of the dbt project called [dbt_project_evaluator](https://github.com/dbt-labs/dbt-project-evaluator) - this tests for lineage issues. One of its major checks is to see if staging models refer to other staging models which is normally not allowed. 
  
@@ -75,7 +75,7 @@ You've also had a request from the SMT asking for two dashboards, one for financ
 There are two possible approaches to this:
 1) -  How we do things at the time of writing - Create a final model per dashboard showing the relevant information and assign an exposure to each with a dummy URL :
      ```
-     url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+     url: https://inksacio.data.octopus.engineering/my_certification_dashboard/
      ```
    - Put each model into a directory specific to their business unit like `models/final/sales/fnl_sales_newcustomers.sql`
    - Make sure to write a `_models.yml` in each directory.
