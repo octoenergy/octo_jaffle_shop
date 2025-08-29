@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: fnl_customer_first_orders_by_month
+    description: '{{ doc("customer_first_orders_by_month") }}'
+    columns:
+      - name: year
+        description: '{{ doc("customer_first_orders_by_month_year") }}'
+        tests:
+          - not_null
+      - name: month
+        description: '{{ doc("customer_first_orders_by_month_month") }}'
+        tests:
+          - not_null
+      - name: customers_with_first_order
+        description: '{{ doc("customer_first_orders_by_month_customers_with_first_order") }}'
+        tests:
+          - not_null
+
+exposures:
+  - name: sales_dashboard_customer_acquisition
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    depends_on:
+      - ref('fnl_customer_first_orders_by_month')
+    owner:
+      email: lorenzo.campanile@kraken.tech
