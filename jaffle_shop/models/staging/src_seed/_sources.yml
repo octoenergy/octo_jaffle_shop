@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: seed
+    description: "Raw data loaded from CSV seed files"
+    tables:
+      - name: raw_customers
+        description: "Raw customer data including personal information"
+      - name: raw_orders
+        description: "Raw order data"
+      - name: raw_payments
+        description: "Raw payment data"
