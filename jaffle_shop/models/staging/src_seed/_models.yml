@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_customers
+    meta:
+      owner: 'example@octoenergy.com'
+    description: Staging table for customer seed with hashed pii data.
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name_hash
+        tests:
+          - not_null
+      - name: last_name_hash
+        tests:
+          - not_null
+  - name: stg_customers_pii
+    meta:
+      owner: 'example@octoenergy.com'
+      sensitive: true
+    description: |
+      Staging table for customer seed including pii data.
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        meta:
+          sensitive: true
+      - name: last_name
+        meta:
+          sensitive: true
+  - name: stg_orders
+    meta:
+      owner: 'example@octoenergy.com'
+    description: |
+      Staging table for customer orders.
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+  - name: stg_payments
+    meta:
+      owner: 'example@octoenergy.com'
+    description: |
+      Staging table for customer payments.
+    columns:
+      - name: payment_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: payment_method
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
