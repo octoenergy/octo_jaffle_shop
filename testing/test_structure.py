@@ -18,7 +18,7 @@ def parent_directory_structure_expected():
             'jaffle_shop/models/warehouse/_models.yml',
             'jaffle_shop/models/warehouse/_docs.md',
             'jaffle_shop/models/warehouse/wh_orders.sql',
-            'jaffle_shop/models/warehouse/wh_customers.sql'
+            'jaffle_shop/models/warehouse/wh_customers_pii.sql'
         ]
     )
 
