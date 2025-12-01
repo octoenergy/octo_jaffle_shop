@@ -8,6 +8,6 @@
             )
         ),
         256
-    ) AS {{column|lower}}_hash,
+    ) AS {{ column|lower }}_hash,
 
 {% endmacro %}
