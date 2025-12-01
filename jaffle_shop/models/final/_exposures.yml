@@ -1,0 +1,21 @@
+version: 2
+
+exposures:
+  - name: orders_reporting
+    label: Orders Reporting
+    description: Dashboard with metrics and plots regarding our customers orders.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: example@octoenergy.com
+    depends_on:
+      - ref('fnl_finance_returnedorders')
+  - name: customer_reporting
+    label: Customer Reporting
+    description: Dashboard with interesting metrics and plots regarding our customers.
+    type: dashboard
+    url: https://inksacio.eks.octopus.engineering/my_certification_dashboard/
+    owner:
+      email: example@octoenergy.com
+    depends_on:
+      - ref('fnl_sales_newcustomers')

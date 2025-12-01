@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fnl_sales_newcustomers
+    meta:
+      owner: 'example@octoenergy.com'
+    description: |
+      Table containing count of customers placing their first order per month.
+    columns:
+      - name: new_customers_month
+        description: Primary key
+        tests:
+          - unique
+          - not_null
