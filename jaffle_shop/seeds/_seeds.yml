@@ -1,0 +1,39 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: "Source for customer information"
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+  - name: raw_orders
+    description: "Source for order information"
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+          # Checks if each user_id in orders actually exists in customers
+          - relationships:
+              to: ref('raw_customers')
+              field: id
+  - name: raw_payments
+    description: "Source for payment information"
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+          # Checks if each order_id in payments actually exists in orders
+          - relationships:
+              to: ref('raw_orders')
+              field: id
