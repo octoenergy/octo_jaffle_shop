@@ -22,8 +22,21 @@ dispatch:
   - macro_namespace: dbt_utils
     search_order: ['dbt_project_evaluator', 'spark_utils', 'dbt_utils']
 
+vars:
+  dbt_project_evaluator:
+    marts_prefixes: ['fnl_', 'wh_']
+
 models:
   jaffle_shop:
       materialized: table
       staging:
         materialized: view
+
+seeds:
+  jaffle_shop:
+    schema: src_seed
+    dbt_project_evaluator_exceptions:
+      enabled: true
+  dbt_project_evaluator:
+    dbt_project_evaluator_exceptions:
+      enabled: false

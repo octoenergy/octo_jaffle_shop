@@ -11,12 +11,15 @@ env-development-salt:
 env-target:
 	echo DATABRICKS_TARGET=$$(git symbolic-ref --short HEAD | tr /- _) >> .env
 
+env-catalog:
+	echo DATABRICKS_CATALOG=hive_metastore >> .env
+
 package-project:
 	for PACKAGE in dbt_project_evaluator ; do \
 		cp package_projects/$$PACKAGE.yml dbt_packages/$$PACKAGE/dbt_project.yml ; \
 	done
 
-build-env: clean-env env-development-salt env-target package-project
+build-env: clean-env env-development-salt env-target env-catalog #package-project
 
 dbt-deps:
 	pipenv run dbt deps
