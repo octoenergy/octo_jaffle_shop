@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: Octo Jaffle Shop dbt Gatekeeper Training Project
+  description: Intentionally broken dbt training project used to certify dbt gatekeepers against Octopus dbt conventions. Uses fake seed data and is not deployed.
+  x-cortex-tag: data-analytics/dbt-services/octo-jaffle-shop
+  x-cortex-type: service
+  x-cortex-git:
+    github:
+      alias: octoenergy
+      repository: octoenergy/octo_jaffle_shop
+  x-cortex-owners:
+    - name: team-analytics-engineering-platform
+      type: group
+      provider: CORTEX
+  x-cortex-slack:
+    channels:
+      - id: C08C0V7N31P
+        description: "x-requests-channel"
+        notificationsEnabled: false
+      - id: C084X2GJNUE
+        description: "x-monitoring-alerts-channel"
+        notificationsEnabled: true
+  x-cortex-relationships:
+    - type: ktl-product-hierarchy
+      sources:
+        - tag: data-analytics/dbt-services
+  x-cortex-circle-ci:
+    projects:
+      - alias: github/octoenergy
+        projectSlug: github/octoenergy/octo_jaffle_shop
+  x-cortex-groups:
+    - service
+    - type_library_package
+  x-cortex-custom-metadata:
+    data-classification:
+      value: Internal
+      description: "Confidential, Internal or Public"
